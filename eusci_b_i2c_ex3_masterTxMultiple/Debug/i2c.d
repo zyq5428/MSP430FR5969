@@ -1,6 +1,7 @@
 # FIXED
 
 i2c.obj: ../i2c.c
+i2c.obj: ../i2c.h
 i2c.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
 i2c.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/inc/hw_memmap.h
 i2c.obj: D:/ti/ccsv8/ccs_base/msp430/include/msp430.h
@@ -52,8 +53,10 @@ i2c.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_
 i2c.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/eusci_b_spi.h
 i2c.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/mtif.h
 i2c.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/lcd_c.h
+i2c.obj: ../delay.h
 
 ../i2c.c: 
+../i2c.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/inc/hw_memmap.h: 
 D:/ti/ccsv8/ccs_base/msp430/include/msp430.h: 
@@ -105,3 +108,4 @@ D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/ref_a
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/eusci_b_spi.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/mtif.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/lcd_c.h: 
+../delay.h: 

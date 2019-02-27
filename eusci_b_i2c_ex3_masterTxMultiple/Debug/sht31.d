@@ -1,6 +1,7 @@
 # FIXED
 
 sht31.obj: ../sht31.c
+sht31.obj: ../sht31.h
 sht31.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
 sht31.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/inc/hw_memmap.h
 sht31.obj: D:/ti/ccsv8/ccs_base/msp430/include/msp430.h
@@ -54,6 +55,7 @@ sht31.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5x
 sht31.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/lcd_c.h
 
 ../sht31.c: 
+../sht31.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/inc/hw_memmap.h: 
 D:/ti/ccsv8/ccs_base/msp430/include/msp430.h: 
