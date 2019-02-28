@@ -11,55 +11,67 @@ CMD_SRCS += \
 C_SRCS += \
 ../cs.c \
 ../delay.c \
+../display_multifunction.c \
 ../eusci_b_i2c_ex3_masterTxMultiple.c \
 ../i2c.c \
 ../i2c_hal.c \
 ../sht3x.c \
-../system.c 
+../system.c \
+../uart.c 
 
 C_DEPS += \
 ./cs.d \
 ./delay.d \
+./display_multifunction.d \
 ./eusci_b_i2c_ex3_masterTxMultiple.d \
 ./i2c.d \
 ./i2c_hal.d \
 ./sht3x.d \
-./system.d 
+./system.d \
+./uart.d 
 
 OBJS += \
 ./cs.obj \
 ./delay.obj \
+./display_multifunction.obj \
 ./eusci_b_i2c_ex3_masterTxMultiple.obj \
 ./i2c.obj \
 ./i2c_hal.obj \
 ./sht3x.obj \
-./system.obj 
+./system.obj \
+./uart.obj 
 
 OBJS__QUOTED += \
 "cs.obj" \
 "delay.obj" \
+"display_multifunction.obj" \
 "eusci_b_i2c_ex3_masterTxMultiple.obj" \
 "i2c.obj" \
 "i2c_hal.obj" \
 "sht3x.obj" \
-"system.obj" 
+"system.obj" \
+"uart.obj" 
 
 C_DEPS__QUOTED += \
 "cs.d" \
 "delay.d" \
+"display_multifunction.d" \
 "eusci_b_i2c_ex3_masterTxMultiple.d" \
 "i2c.d" \
 "i2c_hal.d" \
 "sht3x.d" \
-"system.d" 
+"system.d" \
+"uart.d" 
 
 C_SRCS__QUOTED += \
 "../cs.c" \
 "../delay.c" \
+"../display_multifunction.c" \
 "../eusci_b_i2c_ex3_masterTxMultiple.c" \
 "../i2c.c" \
 "../i2c_hal.c" \
 "../sht3x.c" \
-"../system.c" 
+"../system.c" \
+"../uart.c" 
 
 

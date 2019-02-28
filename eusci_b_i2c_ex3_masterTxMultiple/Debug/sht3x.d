@@ -59,6 +59,7 @@ sht3x.obj: ../i2c_hal.h
 sht3x.obj: ../i2c.h
 sht3x.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
 sht3x.obj: ../delay.h
+sht3x.obj: ../display_multifunction.h
 
 ../sht3x.c: 
 ../sht3x.h: 
@@ -119,3 +120,4 @@ D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/lcd_c
 ../i2c.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
 ../delay.h: 
+../display_multifunction.h: 

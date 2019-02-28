@@ -31,14 +31,14 @@ void i2c_addr_set(uint8_t addr)
     SLAVE_ADDRESS = addr;
 }
 
-uint8_t *TXData;      // Pointer to TX data
-uint8_t Data_Position;  // TX data Position
-uint8_t TXByteCtr;      // TX byte count
+uint8_t *I2C_TX_Data;      // Pointer to TX data
+uint8_t I2C_Data_Position;  // TX data Position
+uint8_t I2C_TX_ByteCtr;      // TX byte count
 
 int i2c_write(uint8_t addr, uint8_t data[], uint8_t num)
 {
-    TXData = data;
-    TXByteCtr = num;
+    I2C_TX_Data = data;
+    I2C_TX_ByteCtr = num;
     SLAVE_ADDRESS = addr;
 
     EUSCI_B_I2C_initMasterParam param = {0};
@@ -73,12 +73,12 @@ int i2c_write(uint8_t addr, uint8_t data[], uint8_t num)
 
     delay_us(1000);                   // Delay between transmissions
 
-    Data_Position = 0;
+    I2C_Data_Position = 0;
 
     while (EUSCI_B_I2C_SENDING_STOP == EUSCI_B_I2C_masterIsStopSent(EUSCI_B0_BASE))
         ;
 
-    EUSCI_B_I2C_masterSendMultiByteStart(EUSCI_B0_BASE, TXData[Data_Position++]);
+    EUSCI_B_I2C_masterSendMultiByteStart(EUSCI_B0_BASE, I2C_TX_Data[I2C_Data_Position++]);
 
     __bis_SR_register(CPUOFF + GIE);        // Enter LPM0 w/ interrupts
                                             // Remain in LPM0 until all data
@@ -95,20 +95,20 @@ int i2c_write_address_already(uint8_t data[], uint8_t num)
 }
 
 
-uint8_t *RXData;        // Pointer to RX data
-uint8_t RXByteCtr;      // RX byte count
+uint8_t *I2C_RX_Data;        // Pointer to RX data
+uint8_t I2C_RX_ByteCtr;      // RX byte count
 
 int i2c_read(uint8_t addr, uint8_t data[], uint8_t num)
 {
-    RXData = data;
-    RXByteCtr = num;
+    I2C_RX_Data = data;
+    I2C_RX_ByteCtr = num;
     SLAVE_ADDRESS = addr;
 
     EUSCI_B_I2C_initMasterParam rx_param = {0};
     rx_param.selectClockSource = EUSCI_B_I2C_CLOCKSOURCE_SMCLK;
     rx_param.i2cClk = CS_getSMCLK();
     rx_param.dataRate = EUSCI_B_I2C_SET_DATA_RATE_400KBPS;
-    rx_param.byteCounterThreshold = RXByteCtr;
+    rx_param.byteCounterThreshold = I2C_RX_ByteCtr;
     rx_param.autoSTOPGeneration = EUSCI_B_I2C_SEND_STOP_AUTOMATICALLY_ON_BYTECOUNT_THRESHOLD;
     EUSCI_B_I2C_initMaster(EUSCI_B0_BASE, &rx_param);
 
@@ -138,7 +138,7 @@ int i2c_read(uint8_t addr, uint8_t data[], uint8_t num)
 
     delay_us(2000);
 
-    Data_Position = 0;
+    I2C_Data_Position = 0;
 
     while (EUSCI_B_I2C_SENDING_STOP ==
             EUSCI_B_I2C_masterIsStopSent(EUSCI_B0_BASE));
@@ -200,21 +200,21 @@ void USCIB0_ISR(void)
             break;
         case USCI_I2C_UCRXIFG0:     // RXIFG0
             // Get RX data
-            RXData[Data_Position++] = EUSCI_B_I2C_masterReceiveSingle(
+            I2C_RX_Data[I2C_Data_Position++] = EUSCI_B_I2C_masterReceiveSingle(
                                     EUSCI_B0_BASE
                     );
-          if (++count >= RXByteCtr) {
+          if (++count >= I2C_RX_ByteCtr) {
               count = 0;
               __bic_SR_register_on_exit(CPUOFF); // Exit LPM0
           }
             break; // Vector 24: RXIFG0 break;
         case USCI_I2C_UCTXIFG0:     // TXIFG0
             // Check TX byte counter
-            if (TXByteCtr)
+            if (I2C_TX_ByteCtr)
             {
-                EUSCI_B_I2C_masterSendMultiByteNext(EUSCI_B0_BASE, TXData[Data_Position++]);
+                EUSCI_B_I2C_masterSendMultiByteNext(EUSCI_B0_BASE, I2C_TX_Data[I2C_Data_Position++]);
                 // Decrement TX byte counter
-                TXByteCtr--;
+                I2C_TX_ByteCtr--;
             }
             else
             {

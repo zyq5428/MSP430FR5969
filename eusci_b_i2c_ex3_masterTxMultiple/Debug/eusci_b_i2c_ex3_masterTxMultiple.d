@@ -59,6 +59,10 @@ eusci_b_i2c_ex3_masterTxMultiple.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMu
 eusci_b_i2c_ex3_masterTxMultiple.obj: ../system.h
 eusci_b_i2c_ex3_masterTxMultiple.obj: ../typedefs.h
 eusci_b_i2c_ex3_masterTxMultiple.obj: ../i2c_hal.h
+eusci_b_i2c_ex3_masterTxMultiple.obj: ../i2c.h
+eusci_b_i2c_ex3_masterTxMultiple.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
+eusci_b_i2c_ex3_masterTxMultiple.obj: ../uart.h
+eusci_b_i2c_ex3_masterTxMultiple.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
 
 ../eusci_b_i2c_ex3_masterTxMultiple.c: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
@@ -119,3 +123,7 @@ D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/drive
 ../system.h: 
 ../typedefs.h: 
 ../i2c_hal.h: 
+../i2c.h: 
+D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
+../uart.h: 
+D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 

@@ -7,6 +7,24 @@
 #include "system.h"
 #include "i2c_hal.h"
 
+//*****************************************************************************
+//
+//! \brief Used in sht3x sensor as the param parameter.
+//
+//*****************************************************************************
+typedef struct SHT3x_Sensor_Param {
+    //! 7-bit address
+    u8t Address;
+    //! Raw Temperature Value
+    u16t RawTemperature;
+    //! Raw Humidity Value
+    u16t RawHumidity;
+    //! Calculated temperature value
+    ft Temperature;
+    //! Calculated temperature value
+    ft Humidity;
+} SHT3x_Sensor_Param;
+
 //-- Enumerations -------------------------------------------------------------
 // Sensor Commands
 typedef enum{

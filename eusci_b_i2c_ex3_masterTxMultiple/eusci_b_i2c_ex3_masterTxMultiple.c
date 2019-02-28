@@ -33,6 +33,8 @@
 #include "cs.h"
 #include "delay.h"
 #include "sht3x.h"
+#include "i2c.h"
+#include "uart.h"
 
 //******************************************************************************
 //! This example shows how to configure the I2C module as a master for
@@ -107,7 +109,20 @@ void gpio_init(void)
         GPIO_PIN6
     );
 
+    //power off led
+
+    GPIO_setOutputLowOnPin(
+        GPIO_PORT_P1,
+        GPIO_PIN0
+    );
+
+    GPIO_setOutputLowOnPin(
+        GPIO_PORT_P4,
+        GPIO_PIN6
+        );
+
     i2c_pin_set();
+    uart_pin_set();
 }
 
 void main(void)
@@ -124,6 +139,7 @@ void main(void)
      */
     PMM_unlockLPM5();
 
+    uart_init();
 
     while(1)
     {

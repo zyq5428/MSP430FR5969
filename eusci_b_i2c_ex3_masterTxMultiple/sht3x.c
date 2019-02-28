@@ -3,6 +3,7 @@
 #include "sht3x.h"
 #include "i2c.h"
 #include "delay.h"
+#include "display_multifunction.h"
 
 u8t cmd[2];
 u8t raw_value[6];
@@ -786,6 +787,9 @@ void data_synthesis(u8t data[])
     RawHumidity = ((data[3] << 8) | data[4]);
 }
 
+SHT3x_Sensor_Param sht3x_param;
+#define sht3x   1
+
 void sht31_test(void)
 {
     SHT3X_Init(0x44);
@@ -819,5 +823,14 @@ void sht31_test(void)
 
     Temperature = SHT3X_CalcTemperature(RawTemperature);
     Humidity = SHT3X_CalcHumidity(RawHumidity);
+
+    sht3x_param.RawTemperature = RawTemperature;
+    sht3x_param.RawHumidity = RawHumidity;
+    sht3x_param.Temperature = Temperature;
+    sht3x_param.Humidity = Humidity;
+
+    display(&sht3x_param, &sht3x_param, sht3x);
+
+    delay_s(1);
 
 }
