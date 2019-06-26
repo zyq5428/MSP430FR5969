@@ -38,7 +38,7 @@ uint8_t I2C_TX_ByteCtr;      // TX byte count
 int i2c_write(uint8_t addr, uint8_t data[], uint8_t num)
 {
     I2C_TX_Data = data;
-    I2C_TX_ByteCtr = num;
+    I2C_TX_ByteCtr = num - 1;
     SLAVE_ADDRESS = addr;
 
     EUSCI_B_I2C_initMasterParam param = {0};
@@ -71,7 +71,8 @@ int i2c_write(uint8_t addr, uint8_t data[], uint8_t num)
                 EUSCI_B_I2C_NAK_INTERRUPT
               );
 
-    delay_us(1000);                   // Delay between transmissions
+    //Delay between each transaction
+    __delay_cycles(100);
 
     I2C_Data_Position = 0;
 
@@ -107,7 +108,8 @@ int i2c_read(uint8_t addr, uint8_t data[], uint8_t num)
     EUSCI_B_I2C_initMasterParam rx_param = {0};
     rx_param.selectClockSource = EUSCI_B_I2C_CLOCKSOURCE_SMCLK;
     rx_param.i2cClk = CS_getSMCLK();
-    rx_param.dataRate = EUSCI_B_I2C_SET_DATA_RATE_400KBPS;
+//    rx_param.dataRate = EUSCI_B_I2C_SET_DATA_RATE_400KBPS;
+    rx_param.dataRate = EUSCI_B_I2C_SET_DATA_RATE_100KBPS;
     rx_param.byteCounterThreshold = I2C_RX_ByteCtr;
     rx_param.autoSTOPGeneration = EUSCI_B_I2C_SEND_STOP_AUTOMATICALLY_ON_BYTECOUNT_THRESHOLD;
     EUSCI_B_I2C_initMaster(EUSCI_B0_BASE, &rx_param);

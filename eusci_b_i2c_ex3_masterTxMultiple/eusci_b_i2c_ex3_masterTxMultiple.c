@@ -35,6 +35,8 @@
 #include "sht3x.h"
 #include "i2c.h"
 #include "uart.h"
+#include "oled_display.h"
+
 
 //******************************************************************************
 //! This example shows how to configure the I2C module as a master for
@@ -121,6 +123,16 @@ void gpio_init(void)
         GPIO_PIN6
         );
 
+    GPIO_setAsOutputPin(
+        GPIO_PORT_P1,
+        GPIO_PIN5
+    );
+
+     GPIO_setOutputHighOnPin(
+         GPIO_PORT_P1,
+         GPIO_PIN5
+     );
+
     i2c_pin_set();
     uart_pin_set();
 }
@@ -141,10 +153,16 @@ void main(void)
 
     uart_init();
 
+    oled_display_memu();
+
     while(1)
     {
         sht31_test();
     }
+//    while(1)
+//    {
+//        oled_test();
+//    }
 }
 
 

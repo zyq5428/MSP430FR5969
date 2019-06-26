@@ -792,7 +792,8 @@ SHT3x_Sensor_Param sht3x_param;
 
 void sht31_test(void)
 {
-    SHT3X_Init(0x44);
+//    SHT3X_Init(0x44);
+    i2c_addr_set(0x44);
 
     // wait 50ms after power on
     delay_ms(50);

@@ -8,6 +8,7 @@
 #include "display_multifunction.h"
 #include "uart.h"
 #include "sht3x.h"
+#include "oled.h"
 
 unsigned char tem_title[] = "\t\nTemperature is :\t\n";
 unsigned char hum_title[] = "\t\nhumidity is :\t\n";
@@ -44,9 +45,13 @@ unsigned char display(void *handle, void *ptr, unsigned char type)
     uart_multibyte_send(tem_unit, sizeof(tem_unit));
     uart_multibyte_send(tem_suffix, sizeof(tem_suffix));
 
+    OLED_ShowString_N(48,3, tem_unit, sizeof(tem_unit));
+
     uart_multibyte_send(hum_title, sizeof(hum_title));
     uart_multibyte_send(hum_unit, sizeof(hum_unit));
     uart_multibyte_send(hum_suffix, sizeof(hum_suffix));
+
+    OLED_ShowString_N(48,5, hum_unit, sizeof(hum_unit));
 
     return 0;
 }

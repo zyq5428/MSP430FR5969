@@ -63,6 +63,7 @@ eusci_b_i2c_ex3_masterTxMultiple.obj: ../i2c.h
 eusci_b_i2c_ex3_masterTxMultiple.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
 eusci_b_i2c_ex3_masterTxMultiple.obj: ../uart.h
 eusci_b_i2c_ex3_masterTxMultiple.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h
+eusci_b_i2c_ex3_masterTxMultiple.obj: ../oled_display.h
 
 ../eusci_b_i2c_ex3_masterTxMultiple.c: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
@@ -127,3 +128,4 @@ D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/drive
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
 ../uart.h: 
 D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/driverlib.h: 
+../oled_display.h: 

@@ -59,6 +59,7 @@ display_multifunction.obj: D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driv
 display_multifunction.obj: ../system.h
 display_multifunction.obj: ../typedefs.h
 display_multifunction.obj: ../i2c_hal.h
+display_multifunction.obj: ../oled.h
 
 ../display_multifunction.c: 
 ../display_multifunction.h: 
@@ -119,3 +120,4 @@ D:/workspace_v8/eusci_b_i2c_ex3_masterTxMultiple/driverlib/MSP430FR5xx_6xx/drive
 ../system.h: 
 ../typedefs.h: 
 ../i2c_hal.h: 
+../oled.h: 
