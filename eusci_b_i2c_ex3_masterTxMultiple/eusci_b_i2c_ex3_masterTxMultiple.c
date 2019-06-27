@@ -36,6 +36,7 @@
 #include "i2c.h"
 #include "uart.h"
 #include "oled_display.h"
+#include "oled.h"
 
 
 //******************************************************************************
@@ -157,12 +158,23 @@ void main(void)
 
     while(1)
     {
-        sht31_test();
+        int i = 3;
+
+        while (i > 0)
+        {
+            sht31_test();
+
+            delay_s(2);
+
+            i--;
+        }
+
+        OLED_Display_Off();
+
+        delay_s(15);
+
+        OLED_Display_On();
     }
-//    while(1)
-//    {
-//        oled_test();
-//    }
 }
 
 
